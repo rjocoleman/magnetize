@@ -28,5 +28,9 @@ module Magnetize
         super
       end
     end
+
+    def respond_to?(method_name)
+      OPTIONS.include? method_name.to_s || super
+    end
   end
 end
