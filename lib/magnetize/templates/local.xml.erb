@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config>
+  <global>
+    <install>
+      <date><![CDATA[Thu, 01 Jul 2010 10:29:20 +0000]]></date>
+    </install>
+    <crypt>
+      <key><![CDATA[82ba7f3f9db9aec288ffbce1e0ad08e2]]></key>
+    </crypt>
+    <disable_local_modules>false</disable_local_modules>
+    <resources>
+      <db>
+        <table_prefix>
+          <![CDATA[<%= database_table_prefix %>]]>
+        </table_prefix>
+      </db>
+      <default_setup>
+        <connection>
+          <host>
+            <![CDATA[<%= database_hostname %>]]>
+          </host>
+          <username>
+            <![CDATA[<%= database_username %>]]>
+          </username>
+          <password>
+            <![CDATA[<%= database_password %>]]>
+          </password>
+          <dbname>
+            <![CDATA[<%= database_name %>]]>
+          </dbname>
+          <active>1</active>
+        </connection>
+      </default_setup>
+    </resources>
+    <session_save><![CDATA[files]]></session_save>
+  </global>
+  <admin>
+    <routers>
+      <adminhtml>
+        <args>
+          <frontName><![CDATA[admin]]></frontName>
+        </args>
+      </adminhtml>
+    </routers>
+  </admin>
+</config>

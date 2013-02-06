@@ -32,5 +32,13 @@ module Magnetize
     def respond_to?(method_name)
       OPTIONS.include? method_name.to_s || super
     end
+
+    def to_xml
+      template = File.read "#{File.dirname(__FILE__)}/templates/local.xml.erb"
+
+      erb = ERB.new template
+
+      erb.result binding
+    end
   end
 end
