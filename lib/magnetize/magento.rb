@@ -6,6 +6,7 @@ module Magnetize
       administrator_email
       administrator_username
       administrator_password
+      encryption_key
       database_name
       database_hostname
       database_username
