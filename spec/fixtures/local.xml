@@ -16,8 +16,9 @@
           <![CDATA[]]>
         </table_prefix>
       </db>
-      <default_setup>
+      <default_read>
         <connection>
+          <use />
           <host>
             <![CDATA[localhost]]>
           </host>
@@ -30,9 +31,51 @@
           <dbname>
             <![CDATA[magento]]>
           </dbname>
+          <initStatements>
+            <![CDATA[SET NAMES utf8]]>
+          </initStatements>
+          <model>
+            <![CDATA[mysql4]]>
+          </model>
+          <type>
+            <![CDATA[pdo_mysql]]>
+          </type>
+          <pdoType>
+            <![CDATA[]]>
+          </pdoType>
           <active>1</active>
         </connection>
-      </default_setup>
+      </default_read>
+      <default_write>
+        <connection>
+          <use />
+          <host>
+            <![CDATA[localhost]]>
+          </host>
+          <username>
+            <![CDATA[magento]]>
+          </username>
+          <password>
+            <![CDATA[?DWG,/2t*D;q^B73p2zi]9Ep776buF,i]]>
+          </password>
+          <dbname>
+            <![CDATA[magento]]>
+          </dbname>
+          <initStatements>
+            <![CDATA[SET NAMES utf8]]>
+          </initStatements>
+          <model>
+            <![CDATA[mysql4]]>
+          </model>
+          <type>
+            <![CDATA[pdo_mysql]]>
+          </type>
+          <pdoType>
+            <![CDATA[]]>
+          </pdoType>
+          <active>1</active>
+        </connection>
+      </default_write>
     </resources>
     <session_save><![CDATA[files]]></session_save>
   </global>

@@ -6,12 +6,16 @@ module Magnetize
       administrator_email
       administrator_username
       administrator_password
-      encryption_key
-      database_name
-      database_hostname
-      database_username
-      database_password
+      database_read_name
+      database_read_hostname
+      database_read_username
+      database_read_password
+      database_write_name
+      database_write_hostname
+      database_write_username
+      database_write_password
       database_table_prefix
+      encryption_key
     )
 
     def method_missing(method_name)

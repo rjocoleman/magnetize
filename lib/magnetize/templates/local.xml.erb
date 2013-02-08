@@ -16,23 +16,66 @@
           <![CDATA[<%= database_table_prefix %>]]>
         </table_prefix>
       </db>
-      <default_setup>
+      <default_read>
         <connection>
+          <use />
           <host>
-            <![CDATA[<%= database_hostname %>]]>
+            <![CDATA[<%= database_read_hostname %>]]>
           </host>
           <username>
-            <![CDATA[<%= database_username %>]]>
+            <![CDATA[<%= database_read_username %>]]>
           </username>
           <password>
-            <![CDATA[<%= database_password %>]]>
+            <![CDATA[<%= database_read_password %>]]>
           </password>
           <dbname>
-            <![CDATA[<%= database_name %>]]>
+            <![CDATA[<%= database_read_name %>]]>
           </dbname>
+          <initStatements>
+            <![CDATA[SET NAMES utf8]]>
+          </initStatements>
+          <model>
+            <![CDATA[mysql4]]>
+          </model>
+          <type>
+            <![CDATA[pdo_mysql]]>
+          </type>
+          <pdoType>
+            <![CDATA[]]>
+          </pdoType>
           <active>1</active>
         </connection>
-      </default_setup>
+      </default_read>
+      <default_write>
+        <connection>
+          <use />
+          <host>
+            <![CDATA[<%= database_write_hostname %>]]>
+          </host>
+          <username>
+            <![CDATA[<%= database_write_username %>]]>
+          </username>
+          <password>
+            <![CDATA[<%= database_write_password %>]]>
+          </password>
+          <dbname>
+            <![CDATA[<%= database_write_name %>]]>
+          </dbname>
+          <initStatements>
+            <![CDATA[SET NAMES utf8]]>
+          </initStatements>
+          <model>
+            <![CDATA[mysql4]]>
+          </model>
+          <type>
+            <![CDATA[pdo_mysql]]>
+          </type>
+          <pdoType>
+            <![CDATA[]]>
+          </pdoType>
+          <active>1</active>
+        </connection>
+      </default_write>
     </resources>
     <session_save><![CDATA[files]]></session_save>
   </global>
