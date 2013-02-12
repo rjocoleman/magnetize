@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.name        = 'magnetize'
   gem.version     = Magnetize::VERSION
   gem.authors     = ['Allen Goodman']
-  gem.email       = ['allen.goodman@me.com']
+  gem.email       = ['allen@goodman.io']
   gem.description = %q{
     A Gem for creating a Magento configuration from environmental variables.
   }
