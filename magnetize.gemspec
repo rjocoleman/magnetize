@@ -18,7 +18,6 @@ Gem::Specification.new do |gem|
   }
   gem.homepage    = 'https://github.com/2a6U37Nn/magnetize'
 
-  gem.add_development_dependency 'foreman',   '~> 0'
   gem.add_development_dependency 'rake',      '~> 0'
   gem.add_development_dependency 'rspec',     '~> 2'
   gem.add_development_dependency 'simplecov', '~> 0'
