@@ -32,4 +32,18 @@ describe Magnetize::Magento do
       it { expect(magento.to_xml).to eq configuration }
     end
   end
+
+  describe '.save' do
+    let(:configuration) {
+      File.read "#{File.expand_path '.'}/spec/fixtures/local.xml"
+    }
+
+    let(:path) { magento.save }
+    
+    after(:all) { File.delete path }
+
+    context 'when path argument is valid' do
+      it { expect(File.open(path, 'r') { |f| f.read }).to eq configuration }
+    end
+  end
 end
