@@ -4,7 +4,7 @@ A command-line interface for Magento.
 
 ## Installation
 
-    $ gem install wobble
+    $ gem install magnetize
 
 ## Help
 
