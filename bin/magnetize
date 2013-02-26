@@ -6,7 +6,7 @@ require 'magnetize'
 
 include GLI::App
 
-program_desc 'configure a Magento application'
+program_desc 'A command-line interface for Magento.'
 
 version Magnetize::VERSION
 

@@ -13,8 +13,8 @@ Gem::Specification.new do |gem|
 
   gem.authors     = 'Allen Goodman'
   gem.email       = 'allen@goodman.io'
-  gem.description = %q{A command-line interface for Magento’s configuration.}
-  gem.summary     = %q{A command-line interface for Magento’s configuration.}
+  gem.description = %q{A command-line interface for Magento.}
+  gem.summary     = %q{A command-line interface for Magento.}
   gem.homepage    = 'https://github.com/prairie/magnetize'
 
   gem.files         = `git ls-files`.split($/)
