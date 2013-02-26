@@ -12,7 +12,7 @@ describe Magnetize::Magento do
     ENV['magento_database_write_password'] = '?DWG,/2t*D;q^B73p2zi]9Ep776buF,i'
     ENV['magento_database_write_name']     = 'magento'
 
-    ENV['magento_encryption_key']    = '82ba7f3f9db9aec288ffbce1e0ad08e2'
+    ENV['magento_encryption_key'] = '82ba7f3f9db9aec288ffbce1e0ad08e2'
   end
 
   let(:magento) { Magnetize::Magento.new }
@@ -39,7 +39,7 @@ describe Magnetize::Magento do
     }
 
     let(:path) { magento.save }
-    
+
     after(:all) { File.delete path }
 
     context 'when path argument is valid' do

@@ -46,8 +46,8 @@ module Magnetize
       erb.result binding
     end
 
-    def save(path=nil)    
-      File.open "#{path ? path : Dir.pwd}/local.xml", 'w+' do |file| 
+    def save(path=nil)
+      File.open "#{path ? path : Dir.pwd}/local.xml", 'w+' do |file|
         file.write to_xml
       end
 

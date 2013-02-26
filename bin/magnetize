@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+require 'gli'
+
+require 'magnetize'
+
+include GLI::App
+
+program_desc 'configure a Magento application'
+
+version Magnetize::VERSION
+
+desc 'configure Magento'
+command :configure do |c|
+  c.desc "Magento\u2019s path"
+  c.flag :path, default_value: '/var/www/magento'
+
+  c.action do |global_options, options, args|
+    @magento.save options['path']
+  end
+end
+
+pre do |global, command, options, args|
+  @magento = Magnetize::Magento.new
+
+  true
+end
+
+post do |global, command, options, args|
+end
+
+on_error do |exception|
+  true
+end
+
+exit run(ARGV)
