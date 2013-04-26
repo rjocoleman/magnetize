@@ -4,14 +4,18 @@
     <install>
       <date><![CDATA[Thu, 01 Jul 2010 10:29:20 +0000]]></date>
     </install>
+
     <crypt>
       <key><![CDATA[<%= encryption_key %>]]></key>
     </crypt>
+
     <disable_local_modules>false</disable_local_modules>
+
     <resources>
       <db>
         <table_prefix><![CDATA[<%= database_table_prefix %>]]></table_prefix>
       </db>
+
       <default_read>
         <connection>
           <use />
@@ -26,6 +30,7 @@
           <active>1</active>
         </connection>
       </default_read>
+
       <default_write>
         <connection>
           <use />
@@ -78,6 +83,7 @@
       <header2><![CDATA[<%= remote_addr_headers_header2 %>]]></header2>
     </remote_addr_headers>
   </global>
+
   <admin>
     <routers>
       <adminhtml>
