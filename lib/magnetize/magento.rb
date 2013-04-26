@@ -16,6 +16,9 @@ module Magnetize
       database_write_password
       database_table_prefix
       encryption_key
+      session_save
+      session_save_path
+      session_cache_limiter
     )
 
     def method_missing(method_name)

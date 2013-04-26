@@ -41,7 +41,10 @@
         </connection>
       </default_write>
     </resources>
-    <session_save><![CDATA[files]]></session_save>
+
+    <session_save><![CDATA[<%= session_save %>]]></session_save>
+    <session_save_path><![CDATA[<%= session_save_path %>]]></session_save_path>
+    <session_cache_limiter><![CDATA[<%= session_cache_limiter %>]]></session_cache_limiter>
   </global>
   <admin>
     <routers>
