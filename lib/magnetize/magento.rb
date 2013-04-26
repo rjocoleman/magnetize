@@ -46,6 +46,11 @@ module Magnetize
       session_save
       session_save_path
       session_cache_limiter
+
+      skin_report_action
+      skin_report_subject
+      skin_report_email_address
+      skin_report_trash
     )
 
     def method_missing(method_name)
