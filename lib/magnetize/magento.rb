@@ -6,6 +6,22 @@ module Magnetize
       administrator_email
       administrator_username
       administrator_password
+      cache_backend
+      cache_slow_backend
+      cache_slow_backend_store_data
+      cache_auto_refresh_fast_cache
+      cache_memcached_servers_server_host
+      cache_memcached_servers_server_port
+      cache_memcached_servers_server_persistent
+      cache_memcached_servers_server_weight
+      cache_memcached_servers_server_timeout
+      cache_memcached_servers_server_retry_interval
+      cache_memcached_servers_server_status
+      cache_memcached_compression
+      cache_memcached_cache_dir
+      cache_memcached_hashed_directory_level
+      cache_memcached_hashed_directory_umask
+      cache_memcached_file_name_prefix
       database_read_name
       database_read_hostname
       database_read_username

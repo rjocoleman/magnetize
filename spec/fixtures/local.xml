@@ -45,6 +45,33 @@
     <session_save><![CDATA[]]></session_save>
     <session_save_path><![CDATA[]]></session_save_path>
     <session_cache_limiter><![CDATA[]]></session_cache_limiter>
+
+    <cache>
+      <backend><![CDATA[]]></backend>
+      <slow_backend><![CDATA[]]></slow_backend>
+      <slow_backend_store_data><![CDATA[]]></slow_backend_store_data>
+      <auto_refresh_fast_cache><![CDATA[]]></auto_refresh_fast_cache>
+
+      <memcached>
+        <servers>
+          <server>
+            <host><![CDATA[]]></host>
+            <port><![CDATA[]]></port>
+            <persistent><![CDATA[]]></persistent>
+            <weight><![CDATA[]]></weight>
+            <timeout><![CDATA[]]></timeout>
+            <retry_interval><![CDATA[]]></retry_interval>
+            <status><![CDATA[]]></status>
+          </server>
+        </servers>
+
+        <compression><![CDATA[]]></compression>
+        <cache_dir><![CDATA[]]></cache_dir>
+        <hashed_directory_level><![CDATA[]]></hashed_directory_level>
+        <hashed_directory_umask><![CDATA[]]></hashed_directory_umask>
+        <file_name_prefix><![CDATA[]]></file_name_prefix>
+      </memcached>
+    </cache>
   </global>
   <admin>
     <routers>
