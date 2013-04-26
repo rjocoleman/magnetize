@@ -72,6 +72,11 @@
         <file_name_prefix><![CDATA[]]></file_name_prefix>
       </memcached>
     </cache>
+
+    <remote_addr_headers>
+      <header1><![CDATA[]]></header1>
+      <header2><![CDATA[]]></header2>
+    </remote_addr_headers>
   </global>
   <admin>
     <routers>

@@ -32,6 +32,8 @@ module Magnetize
       database_write_password
       database_table_prefix
       encryption_key
+      remote_addr_headers_header1
+      remote_addr_headers_header2
       session_save
       session_save_path
       session_cache_limiter
