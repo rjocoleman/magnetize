@@ -1,3 +1,3 @@
 module Magnetize
-  VERSION = '1.0.0' unless defined?(Magnetize::VERSION)
+  VERSION = '1.0.2' unless defined?(Magnetize::VERSION)
 end
