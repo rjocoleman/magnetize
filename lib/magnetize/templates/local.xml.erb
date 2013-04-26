@@ -5,74 +5,38 @@
       <date><![CDATA[Thu, 01 Jul 2010 10:29:20 +0000]]></date>
     </install>
     <crypt>
-      <key>
-        <![CDATA[<%= encryption_key %>]]>
-      </key>
+      <key><![CDATA[<%= encryption_key %>]]></key>
     </crypt>
     <disable_local_modules>false</disable_local_modules>
     <resources>
       <db>
-        <table_prefix>
-          <![CDATA[<%= database_table_prefix %>]]>
-        </table_prefix>
+        <table_prefix><![CDATA[<%= database_table_prefix %>]]></table_prefix>
       </db>
       <default_read>
         <connection>
           <use />
-          <host>
-            <![CDATA[<%= database_read_hostname %>]]>
-          </host>
-          <username>
-            <![CDATA[<%= database_read_username %>]]>
-          </username>
-          <password>
-            <![CDATA[<%= database_read_password %>]]>
-          </password>
-          <dbname>
-            <![CDATA[<%= database_read_name %>]]>
-          </dbname>
-          <initStatements>
-            <![CDATA[SET NAMES utf8]]>
-          </initStatements>
-          <model>
-            <![CDATA[mysql4]]>
-          </model>
-          <type>
-            <![CDATA[pdo_mysql]]>
-          </type>
-          <pdoType>
-            <![CDATA[]]>
-          </pdoType>
+          <host><![CDATA[<%= database_read_hostname %>]]></host>
+          <username><![CDATA[<%= database_read_username %>]]></username>
+          <password><![CDATA[<%= database_read_password %>]]></password>
+          <dbname><![CDATA[<%= database_read_name %>]]></dbname>
+          <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
+          <model><![CDATA[mysql4]]></model>
+          <type><![CDATA[pdo_mysql]]></type>
+          <pdoType><![CDATA[]]></pdoType>
           <active>1</active>
         </connection>
       </default_read>
       <default_write>
         <connection>
           <use />
-          <host>
-            <![CDATA[<%= database_write_hostname %>]]>
-          </host>
-          <username>
-            <![CDATA[<%= database_write_username %>]]>
-          </username>
-          <password>
-            <![CDATA[<%= database_write_password %>]]>
-          </password>
-          <dbname>
-            <![CDATA[<%= database_write_name %>]]>
-          </dbname>
-          <initStatements>
-            <![CDATA[SET NAMES utf8]]>
-          </initStatements>
-          <model>
-            <![CDATA[mysql4]]>
-          </model>
-          <type>
-            <![CDATA[pdo_mysql]]>
-          </type>
-          <pdoType>
-            <![CDATA[]]>
-          </pdoType>
+          <host><![CDATA[<%= database_write_hostname %>]]></host>
+          <username><![CDATA[<%= database_write_username %>]]></username>
+          <password><![CDATA[<%= database_write_password %>]]></password>
+          <dbname><![CDATA[<%= database_write_name %>]]></dbname>
+          <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
+          <model><![CDATA[mysql4]]></model>
+          <type><![CDATA[pdo_mysql]]></type>
+          <pdoType><![CDATA[]]></pdoType>
           <active>1</active>
         </connection>
       </default_write>
