@@ -5,74 +5,38 @@
       <date><![CDATA[Thu, 01 Jul 2010 10:29:20 +0000]]></date>
     </install>
     <crypt>
-      <key>
-        <![CDATA[82ba7f3f9db9aec288ffbce1e0ad08e2]]>
-      </key>
+      <key><![CDATA[82ba7f3f9db9aec288ffbce1e0ad08e2]]></key>
     </crypt>
     <disable_local_modules>false</disable_local_modules>
     <resources>
       <db>
-        <table_prefix>
-          <![CDATA[]]>
-        </table_prefix>
+        <table_prefix><![CDATA[]]></table_prefix>
       </db>
       <default_read>
         <connection>
           <use />
-          <host>
-            <![CDATA[localhost]]>
-          </host>
-          <username>
-            <![CDATA[magento]]>
-          </username>
-          <password>
-            <![CDATA[?DWG,/2t*D;q^B73p2zi]9Ep776buF,i]]>
-          </password>
-          <dbname>
-            <![CDATA[magento]]>
-          </dbname>
-          <initStatements>
-            <![CDATA[SET NAMES utf8]]>
-          </initStatements>
-          <model>
-            <![CDATA[mysql4]]>
-          </model>
-          <type>
-            <![CDATA[pdo_mysql]]>
-          </type>
-          <pdoType>
-            <![CDATA[]]>
-          </pdoType>
+          <host><![CDATA[localhost]]></host>
+          <username><![CDATA[magento]]></username>
+          <password><![CDATA[?DWG,/2t*D;q^B73p2zi]9Ep776buF,i]]></password>
+          <dbname><![CDATA[magento]]></dbname>
+          <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
+          <model><![CDATA[mysql4]]></model>
+          <type><![CDATA[pdo_mysql]]></type>
+          <pdoType><![CDATA[]]></pdoType>
           <active>1</active>
         </connection>
       </default_read>
       <default_write>
         <connection>
           <use />
-          <host>
-            <![CDATA[localhost]]>
-          </host>
-          <username>
-            <![CDATA[magento]]>
-          </username>
-          <password>
-            <![CDATA[?DWG,/2t*D;q^B73p2zi]9Ep776buF,i]]>
-          </password>
-          <dbname>
-            <![CDATA[magento]]>
-          </dbname>
-          <initStatements>
-            <![CDATA[SET NAMES utf8]]>
-          </initStatements>
-          <model>
-            <![CDATA[mysql4]]>
-          </model>
-          <type>
-            <![CDATA[pdo_mysql]]>
-          </type>
-          <pdoType>
-            <![CDATA[]]>
-          </pdoType>
+          <host><![CDATA[localhost]]></host>
+          <username><![CDATA[magento]]></username>
+          <password><![CDATA[?DWG,/2t*D;q^B73p2zi]9Ep776buF,i]]></password>
+          <dbname><![CDATA[magento]]></dbname>
+          <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
+          <model><![CDATA[mysql4]]></model>
+          <type><![CDATA[pdo_mysql]]></type>
+          <pdoType><![CDATA[]]></pdoType>
           <active>1</active>
         </connection>
       </default_write>
