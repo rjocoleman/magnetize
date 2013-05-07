@@ -43,14 +43,16 @@ module Magnetize
       remote_addr_headers_header1
       remote_addr_headers_header2
 
+      report_action
+      report_subject
+      report_email_address
+      report_trash
+
       session_save
       session_save_path
       session_cache_limiter
 
-      skin_report_action
-      skin_report_subject
-      skin_report_email_address
-      skin_report_trash
+      skin
     )
 
     def method_missing(method_name)
@@ -73,17 +75,29 @@ module Magnetize
       OPTIONS.include? method_name.to_s || super
     end
 
-    def to_xml
-      template = File.read "#{File.dirname(__FILE__)}/templates/local.xml.erb"
-
-      erb = ERB.new template
+    def to_xml(template)
+      erb = ERB.new File.read(
+        "#{File.dirname(__FILE__)}/templates/#{template}.erb"
+      )
 
       erb.result binding
     end
 
-    def save(path=nil)
-      File.open "#{path ? path : Dir.pwd}/local.xml", 'w+' do |file|
+    def save_errors(path=nil)
+      File.open "#{path ? path : Dir.pwd}/errors/local.xml", 'w+' do |file|
         file.write to_xml
+      end
+    end
+
+    def save(path=nil)
+      if !File.directory? "#{path ? path : Dir.pwd}/errors"
+        Dir.mkdir "#{path ? path : Dir.pwd}/errors"
+      end
+
+      %w(local.xml errors/local.xml).each do |filename|
+        File.open "#{path ? path : Dir.pwd}/#{filename}", 'w+' do |file|
+          file.write to_xml(filename)
+        end
       end
 
       "#{path ? path : Dir.pwd}/local.xml"

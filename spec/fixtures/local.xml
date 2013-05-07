@@ -93,13 +93,4 @@
       </adminhtml>
     </routers>
   </admin>
-
-  <skin>
-    <report>
-      <action><![CDATA[]]></action>
-      <subject><![CDATA[]]></subject>
-      <email_address><![CDATA[]]></email_address>
-      <trash><![CDATA[]]></trash>
-    </report>
-  </skin>
 </config>
