@@ -48,8 +48,6 @@ describe Magnetize::Magento do
 
     context 'when path argument is valid' do
       it { expect(File.open(path, 'r') { |f| f.read }).to eq configuration }
-
-
     end
   end
 end
