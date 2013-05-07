@@ -1,6 +1,8 @@
 module Magnetize
   class Magento
     OPTIONS = %w(
+      administrator_routers_adminhtml_args_frontname
+
       administrator_given_name
       administrator_surname
       administrator_email

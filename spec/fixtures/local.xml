@@ -88,7 +88,7 @@
     <routers>
       <adminhtml>
         <args>
-          <frontName><![CDATA[admin]]></frontName>
+          <frontName><![CDATA[]]></frontName>
         </args>
       </adminhtml>
     </routers>
