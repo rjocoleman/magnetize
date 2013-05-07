@@ -85,18 +85,14 @@ module Magnetize
       erb.result binding
     end
 
-    def save_errors(path=nil)
-      File.open "#{path ? path : Dir.pwd}/errors/local.xml", 'w+' do |file|
-        file.write to_xml
-      end
-    end
-
     def save(path=nil)
-      if !File.directory? "#{path ? path : Dir.pwd}/errors"
-        Dir.mkdir "#{path ? path : Dir.pwd}/errors"
+      %w(app app/etc errors).each do |directory|
+        if !Dir.exists? "#{Dir.pwd}/#{directory}"
+          Dir.mkdir "#{Dir.pwd}/#{directory}"
+        end
       end
 
-      %w(local.xml errors/local.xml).each do |filename|
+      %w(app/etc/local.xml errors/local.xml).each do |filename|
         File.open "#{path ? path : Dir.pwd}/#{filename}", 'w+' do |file|
           file.write to_xml(filename)
         end

@@ -12,11 +12,11 @@ version Magnetize::VERSION
 
 desc 'configure Magento'
 command :configure do |c|
-  c.desc "Magento\u2019s path"
-  c.flag :path, default_value: '/var/www/magento'
+  c.desc "Magento\u2019s root."
+  c.flag :application, default_value: '/var/www/magento'
 
   c.action do |global_options, options, args|
-    @magento.save options['path']
+    @magento.save options['application']
   end
 end
 
@@ -27,6 +27,7 @@ pre do |global, command, options, args|
 end
 
 post do |global, command, options, args|
+
 end
 
 on_error do |exception|
