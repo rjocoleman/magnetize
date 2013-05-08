@@ -45,6 +45,21 @@
           <active>1</active>
         </connection>
       </default_write>
+
+      <default_setup>
+        <connection>
+          <use />
+          <host><![CDATA[<%= database_write_hostname %>]]></host>
+          <username><![CDATA[<%= database_write_username %>]]></username>
+          <password><![CDATA[<%= database_write_password %>]]></password>
+          <dbname><![CDATA[<%= database_write_name %>]]></dbname>
+          <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
+          <model><![CDATA[mysql4]]></model>
+          <type><![CDATA[pdo_mysql]]></type>
+          <pdoType><![CDATA[]]></pdoType>
+          <active>1</active>
+        </connection>
+      </default_setup>
     </resources>
 
     <session_save><![CDATA[<%= session_save %>]]></session_save>
