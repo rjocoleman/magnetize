@@ -38,16 +38,12 @@ describe Magnetize::Magento do
       File.read "#{File.expand_path '.'}/spec/fixtures/app/etc/local.xml"
     }
 
-    let(:errors) {
-      File.read "#{File.expand_path '.'}/spec/fixtures/errors/local.xml"
-    }
+    context 'configuration is valid' do
+      it {
+        magento.save
 
-    let(:path) { magento.save }
-
-    after(:all) { File.delete path }
-
-    context 'when path argument is valid' do
-      it { expect(File.open('app/etc/local.xml', 'r') { |f| f.read }).to eq configuration }
+        expect(File.open('app/etc/local.xml', 'r') { |f| f.read }).to eq configuration
+      }
     end
   end
 end

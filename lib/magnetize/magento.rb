@@ -97,8 +97,6 @@ module Magnetize
           file.write to_xml(filename)
         end
       end
-
-      "#{path ? path : Dir.pwd}/local.xml"
     end
   end
 end
