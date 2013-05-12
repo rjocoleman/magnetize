@@ -1,13 +1,7 @@
 module Magnetize
   class Magento
     OPTIONS = %w(
-      administrator_routers_adminhtml_args_frontname
-
-      administrator_given_name
-      administrator_surname
-      administrator_email
-      administrator_username
-      administrator_password
+      admin_routers_adminhtml_args_frontname
 
       cache_backend
       cache_slow_backend
@@ -28,33 +22,38 @@ module Magnetize
       cache_memcached_hashed_directory_umask
       cache_memcached_file_name_prefix
 
-      database_read_name
-      database_read_hostname
-      database_read_username
-      database_read_password
+      default_read_dbname
+      default_read_hostname
+      default_read_username
+      default_read_password
 
-      database_write_name
-      database_write_hostname
-      database_write_username
-      database_write_password
+      default_write_dbname
+      default_write_hostname
+      default_write_username
+      default_write_password
 
-      database_table_prefix
+      default_setup_dbname
+      default_setup_hostname
+      default_setup_username
+      default_setup_password
 
-      encryption_key
+      db_table_prefix
+
+      crypt_key
 
       remote_addr_headers_header1
       remote_addr_headers_header2
 
-      report_action
-      report_subject
-      report_email_address
-      report_trash
-
       session_save
       session_save_path
       session_cache_limiter
+      
+      errors_skin
 
-      skin
+      errors_report_action
+      errors_report_subject
+      errors_report_email_address
+      errors_report_trash
     )
 
     def method_missing(method_name)
@@ -84,18 +83,36 @@ module Magnetize
 
       erb.result binding
     end
+    
+    def write_local(filepath,filename)
+      File.open filepath, 'w+' do |file|
+        file.write to_xml(filename)
+      end
+      puts "---> #{filename} magnetized."
+    end
 
-    def save(path=nil)
+    def save(path=nil,overwrite=nil)
       %w(app app/etc errors).each do |directory|
-        if !Dir.exists? "#{Dir.pwd}/#{directory}"
-          Dir.mkdir "#{Dir.pwd}/#{directory}"
+        directory = Dir.pwd + "/#{directory}"
+        if !Dir.exists? directory
+          Dir.mkdir directory
         end
       end
 
       %w(app/etc/local.xml errors/local.xml).each do |filename|
-        File.open "#{path ? path : Dir.pwd}/#{filename}", 'w+' do |file|
-          file.write to_xml(filename)
+        filepath = (path ? path : Dir.pwd) + "/#{filename}"
+        if !File.exists? filepath or overwrite
+          write_local(filepath,filename)
+        else
+          puts "#{filename} detected. Overwrite? (y/N)"
+          case STDIN.getch.strip
+          when 'Y', 'y', 'yes'
+            write_local(filepath,filename)
+          else
+            puts "---> #{filename} cancelled."
+          end
         end
+        
       end
     end
   end

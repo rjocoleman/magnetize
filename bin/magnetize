@@ -1,22 +1,31 @@
 #!/usr/bin/env ruby
 
 require 'gli'
+require 'dotenv'
+require 'io/console'
 
 require 'magnetize'
 
 include GLI::App
 
-program_desc 'A command-line interface for Magento.'
+program_desc 'CLI for generating Magento local.xml files.'
 
 version Magnetize::VERSION
 
-desc 'configure Magento'
+desc 'Generate Magneto local.xml files'
 command :configure do |c|
-  c.desc "Magento\u2019s root."
-  c.flag :application, default_value: '/var/www/magento'
+  c.desc "Environment to configure."
+  c.flag :environment, default_value: 'local'
+
+  c.desc "Magento application directory."
+  c.flag :application, default_value: './'
+  
+  c.desc 'Force overwrite of existing config.'
+  c.switch [:force]
 
   c.action do |global_options, options, args|
-    @magento.save options['application']
+    Dotenv.load ".env.#{options['environment']}", '.env'
+    @magento.save(options['application'], options['force'])
   end
 end
 

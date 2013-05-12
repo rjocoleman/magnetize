@@ -13,8 +13,8 @@ Gem::Specification.new do |gem|
 
   gem.authors     = 'Allen Goodman'
   gem.email       = 'allen@goodman.io'
-  gem.description = %q{A command-line interface for Magento.}
-  gem.summary     = %q{A command-line interface for Magento.}
+  gem.description = %q{CLI for generating Magento local.xml files.}
+  gem.summary     = %q{CLI for generating Magento local.xml files.}
   gem.homepage    = 'https://github.com/prairie/magnetize'
 
   gem.files         = `git ls-files`.split($/)
@@ -36,4 +36,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'yard',      '~> 0'
 
   gem.add_runtime_dependency 'gli', '~> 2'
+  gem.add_runtime_dependency 'dotenv', '~> 0.7'
+  
 end

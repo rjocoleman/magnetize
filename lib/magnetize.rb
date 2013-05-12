@@ -1,3 +1,4 @@
+require 'magnetize/version'
 require 'magnetize/magento'
 
 module Magnetize

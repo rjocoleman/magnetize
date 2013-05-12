@@ -6,23 +6,23 @@
     </install>
 
     <crypt>
-      <key><![CDATA[<%= encryption_key %>]]></key>
+      <key><![CDATA[<%= crypt_key %>]]></key>
     </crypt>
 
     <disable_local_modules>false</disable_local_modules>
 
     <resources>
       <db>
-        <table_prefix><![CDATA[<%= database_table_prefix %>]]></table_prefix>
+        <table_prefix><![CDATA[<%= db_table_prefix %>]]></table_prefix>
       </db>
 
       <default_read>
         <connection>
           <use />
-          <host><![CDATA[<%= database_read_hostname %>]]></host>
-          <username><![CDATA[<%= database_read_username %>]]></username>
-          <password><![CDATA[<%= database_read_password %>]]></password>
-          <dbname><![CDATA[<%= database_read_name %>]]></dbname>
+          <host><![CDATA[<%= default_read_hostname %>]]></host>
+          <username><![CDATA[<%= default_read_username %>]]></username>
+          <password><![CDATA[<%= default_read_password %>]]></password>
+          <dbname><![CDATA[<%= default_read_dbname %>]]></dbname>
           <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
           <model><![CDATA[mysql4]]></model>
           <type><![CDATA[pdo_mysql]]></type>
@@ -34,10 +34,10 @@
       <default_write>
         <connection>
           <use />
-          <host><![CDATA[<%= database_write_hostname %>]]></host>
-          <username><![CDATA[<%= database_write_username %>]]></username>
-          <password><![CDATA[<%= database_write_password %>]]></password>
-          <dbname><![CDATA[<%= database_write_name %>]]></dbname>
+          <host><![CDATA[<%= default_write_hostname %>]]></host>
+          <username><![CDATA[<%= default_write_username %>]]></username>
+          <password><![CDATA[<%= default_write_password %>]]></password>
+          <dbname><![CDATA[<%= default_write_dbname %>]]></dbname>
           <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
           <model><![CDATA[mysql4]]></model>
           <type><![CDATA[pdo_mysql]]></type>
@@ -49,10 +49,10 @@
       <default_setup>
         <connection>
           <use />
-          <host><![CDATA[<%= database_write_hostname %>]]></host>
-          <username><![CDATA[<%= database_write_username %>]]></username>
-          <password><![CDATA[<%= database_write_password %>]]></password>
-          <dbname><![CDATA[<%= database_write_name %>]]></dbname>
+          <host><![CDATA[<%= default_setup_hostname || default_write_hostname %>]]></host>
+          <username><![CDATA[<%= default_setup_username || default_write_username %>]]></username>
+          <password><![CDATA[<%= default_setup_password || default_write_password %>]]></password>
+          <dbname><![CDATA[<%= default_setup_dbname || default_write_dbname %>]]></dbname>
           <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
           <model><![CDATA[mysql4]]></model>
           <type><![CDATA[pdo_mysql]]></type>
@@ -103,7 +103,7 @@
     <routers>
       <adminhtml>
         <args>
-          <frontName><![CDATA[<%= administrator_routers_adminhtml_args_frontname %>]]></frontName>
+          <frontName><![CDATA[<%= admin_routers_adminhtml_args_frontname %>]]></frontName>
         </args>
       </adminhtml>
     </routers>
