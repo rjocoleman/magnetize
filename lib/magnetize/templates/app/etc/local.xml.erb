@@ -67,24 +67,37 @@
     <session_cache_limiter><![CDATA[<%= session_cache_limiter %>]]></session_cache_limiter>
 
     <cache>
-      <backend><![CDATA[<%= cache_backend %>]]></backend>
       <slow_backend><![CDATA[<%= cache_slow_backend %>]]></slow_backend>
-      <slow_backend_store_data><![CDATA[<%= cache_slow_backend_store_data %>]]></slow_backend_store_data>
-      <auto_refresh_fast_cache><![CDATA[<%= cache_auto_refresh_fast_cache %>]]></auto_refresh_fast_cache>
+      <slow_backend_options>
+        <servers>
+          <server>
+            <host><![CDATA[<%= cache_slow_backend_servers_server_host %>]]></host>
+            <port><![CDATA[<%= cache_slow_backend_servers_server_port %>]]></port>
+            <persistent><![CDATA[<%= cache_slow_backend_servers_server_persistent %>]]></persistent>
+          </server>
+        </servers>
+      </slow_backend_options>
+      
+      <fast_backend><![CDATA[<%= cache_fast_backend %>]]></fast_backend>
+      <fast_backend_options>
+        <servers>
+          <server>
+            <host><![CDATA[<%= cache_fast_backend_servers_server_host %>]]></host>
+            <port><![CDATA[<%= cache_fast_backend_servers_server_port %>]]></port>
+            <persistent><![CDATA[<%= cache_fast_backend_servers_server_persistent %>]]></persistent>
+          </server>
+        </servers>
+      </fast_backend_options>
 
+      <backend><![CDATA[<%= cache_backend %>]]></backend>
       <memcached>
         <servers>
           <server>
             <host><![CDATA[<%= cache_memcached_servers_server_host %>]]></host>
             <port><![CDATA[<%= cache_memcached_servers_server_port %>]]></port>
             <persistent><![CDATA[<%= cache_memcached_servers_server_persistent %>]]></persistent>
-            <weight><![CDATA[<%= cache_memcached_servers_server_weight %>]]></weight>
-            <timeout><![CDATA[<%= cache_memcached_servers_server_timeout %>]]></timeout>
-            <retry_interval><![CDATA[<%= cache_memcached_servers_server_retry_interval %>]]></retry_interval>
-            <status><![CDATA[<%= cache_memcached_servers_server_status %>]]></status>
           </server>
         </servers>
-
         <compression><![CDATA[<%= cache_memcached_compression %>]]></compression>
         <cache_dir><![CDATA[<%= cache_memcached_cache_dir %>]]></cache_dir>
         <hashed_directory_level><![CDATA[<%= cache_memcached_hashed_directory_level %>]]></hashed_directory_level>

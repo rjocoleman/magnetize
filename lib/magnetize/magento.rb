@@ -3,18 +3,23 @@ module Magnetize
     OPTIONS = %w(
       admin_routers_adminhtml_args_frontname
 
-      cache_backend
       cache_slow_backend
-      cache_slow_backend_store_data
-      cache_auto_refresh_fast_cache
+
+      cache_slow_backend_servers_server_host
+      cache_slow_backend_servers_server_port
+      cache_slow_backend_servers_server_persistent
+
+      cache_fast_backend
+
+      cache_fast_backend_servers_server_host
+      cache_fast_backend_servers_server_port
+      cache_fast_backend_servers_server_persistent
+
+      cache_backend
 
       cache_memcached_servers_server_host
       cache_memcached_servers_server_port
       cache_memcached_servers_server_persistent
-      cache_memcached_servers_server_weight
-      cache_memcached_servers_server_timeout
-      cache_memcached_servers_server_retry_interval
-      cache_memcached_servers_server_status
 
       cache_memcached_compression
       cache_memcached_cache_dir
