@@ -62,56 +62,67 @@
       </default_setup>
     </resources>
 
-    <session_save><![CDATA[<%= session_save %>]]></session_save>
-    <session_save_path><![CDATA[<%= session_save_path %>]]></session_save_path>
-    <session_cache_limiter><![CDATA[<%= session_cache_limiter %>]]></session_cache_limiter>
+    <% if session_save %><session_save><![CDATA[<%= session_save %>]]></session_save><% end %>
+    <% if session_save_path %><session_save_path><![CDATA[<%= session_save_path %>]]></session_save_path><% end %>
+    <% if session_cache_limiter %><session_cache_limiter><![CDATA[<%= session_cache_limiter %>]]></session_cache_limiter><% end %>
 
     <cache>
+      <% if cache_slow_backend %>
       <slow_backend><![CDATA[<%= cache_slow_backend %>]]></slow_backend>
       <slow_backend_options>
         <servers>
           <server>
             <host><![CDATA[<%= cache_slow_backend_servers_server_host %>]]></host>
             <port><![CDATA[<%= cache_slow_backend_servers_server_port %>]]></port>
-            <persistent><![CDATA[<%= cache_slow_backend_servers_server_persistent %>]]></persistent>
+            <% if cache_slow_backend_servers_server_persistent %><persistent><![CDATA[<%= cache_slow_backend_servers_server_persistent %>]]></persistent><% end %>
           </server>
         </servers>
       </slow_backend_options>
+      <% end %>
       
+      <% if cache_fast_backend %>
       <fast_backend><![CDATA[<%= cache_fast_backend %>]]></fast_backend>
       <fast_backend_options>
         <servers>
           <server>
             <host><![CDATA[<%= cache_fast_backend_servers_server_host %>]]></host>
             <port><![CDATA[<%= cache_fast_backend_servers_server_port %>]]></port>
-            <persistent><![CDATA[<%= cache_fast_backend_servers_server_persistent %>]]></persistent>
+            <% if cache_fast_backend_servers_server_persistent %><persistent><![CDATA[<%= cache_fast_backend_servers_server_persistent %>]]></persistent><% end %>
           </server>
         </servers>
       </fast_backend_options>
+      <% end %>
 
+      <% if cache_backend %>
       <backend><![CDATA[<%= cache_backend %>]]></backend>
+      <% end %>
+      <% if cache_memcached_servers_server_host %>
       <memcached>
         <servers>
           <server>
             <host><![CDATA[<%= cache_memcached_servers_server_host %>]]></host>
             <port><![CDATA[<%= cache_memcached_servers_server_port %>]]></port>
-            <persistent><![CDATA[<%= cache_memcached_servers_server_persistent %>]]></persistent>
+            <% if cache_memcached_servers_server_persistent %><persistent><![CDATA[<%= cache_memcached_servers_server_persistent %>]]></persistent><% end %>
           </server>
         </servers>
-        <compression><![CDATA[<%= cache_memcached_compression %>]]></compression>
-        <cache_dir><![CDATA[<%= cache_memcached_cache_dir %>]]></cache_dir>
-        <hashed_directory_level><![CDATA[<%= cache_memcached_hashed_directory_level %>]]></hashed_directory_level>
-        <hashed_directory_umask><![CDATA[<%= cache_memcached_hashed_directory_umask %>]]></hashed_directory_umask>
-        <file_name_prefix><![CDATA[<%= cache_memcached_file_name_prefix %>]]></file_name_prefix>
+        <% if cache_memcached_compression %><compression><![CDATA[<%= cache_memcached_compression %>]]></compression><% end %>
+        <% if cache_memcached_cache_dir %><cache_dir><![CDATA[<%= cache_memcached_cache_dir %>]]></cache_dir><% end %>
+        <% if cache_memcached_hashed_directory_level %><hashed_directory_level><![CDATA[<%= cache_memcached_hashed_directory_level %>]]></hashed_directory_level><% end %>
+        <% if cache_memcached_hashed_directory_umask %><hashed_directory_umask><![CDATA[<%= cache_memcached_hashed_directory_umask %>]]></hashed_directory_umask><% end %>
+        <% if cache_memcached_file_name_prefix %><file_name_prefix><![CDATA[<%= cache_memcached_file_name_prefix %>]]></file_name_prefix><% end %>
       </memcached>
+      <% end %>
     </cache>
 
+    <% if remote_addr_headers_header1 || remote_addr_headers_header2 %>
     <remote_addr_headers>
       <header1><![CDATA[<%= remote_addr_headers_header1 %>]]></header1>
       <header2><![CDATA[<%= remote_addr_headers_header2 %>]]></header2>
     </remote_addr_headers>
+    <% end %>
   </global>
 
+  <% if admin_routers_adminhtml_args_frontname %>
   <admin>
     <routers>
       <adminhtml>
@@ -121,4 +132,5 @@
       </adminhtml>
     </routers>
   </admin>
+  <% end %>
 </config>

@@ -67,7 +67,9 @@ module Magnetize
       if OPTIONS.include? option
         self.class.class_eval do
           define_method method_name do
-            ENV["magento_#{method_name}"]
+            if !ENV["magento_#{method_name}"].nil? &&  !ENV["magento_#{method_name}"].empty?
+              ENV["magento_#{method_name}"]
+            end
           end
         end
 
