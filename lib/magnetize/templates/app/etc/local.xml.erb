@@ -66,6 +66,7 @@
     <% if session_save_path %><session_save_path><![CDATA[<%= session_save_path %>]]></session_save_path><% end %>
     <% if session_cache_limiter %><session_cache_limiter><![CDATA[<%= session_cache_limiter %>]]></session_cache_limiter><% end %>
 
+    <% if cache_slow_backend || cache_fast_backend || cache_backend %>
     <cache>
       <% if cache_slow_backend %>
       <slow_backend><![CDATA[<%= cache_slow_backend %>]]></slow_backend>
@@ -113,6 +114,7 @@
       </memcached>
       <% end %>
     </cache>
+    <% end %>
 
     <% if remote_addr_headers_header1 || remote_addr_headers_header2 %>
     <remote_addr_headers>
