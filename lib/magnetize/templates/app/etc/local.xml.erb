@@ -97,7 +97,7 @@
       <% if cache_backend %>
       <backend><![CDATA[<%= cache_backend %>]]></backend>
       <% end %>
-      <% if cache_memcached_servers_server_host %>
+      <% if cache_backend && cache_memcached_servers_server_host %>
       <memcached>
         <servers>
           <server>
