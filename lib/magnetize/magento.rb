@@ -42,6 +42,11 @@ module Magnetize
       default_setup_username
       default_setup_password
 
+      default_backup_dbname
+      default_backup_hostname
+      default_backup_username
+      default_backup_password
+      
       db_table_prefix
 
       crypt_key

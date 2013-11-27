@@ -60,6 +60,23 @@
           <active>1</active>
         </connection>
       </default_setup>
+      
+      <% if default_backup_dbname %>
+      <default_backup>
+        <connection>
+          <use />
+          <host><![CDATA[<%= default_backup_hostname || default_write_hostname %>]]></host>
+          <username><![CDATA[<%= default_backup_username || default_write_username %>]]></username>
+          <password><![CDATA[<%= default_backup_password || default_write_password %>]]></password>
+          <dbname><![CDATA[<%= default_backup_dbname || default_write_dbname %>]]></dbname>
+          <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
+          <model><![CDATA[mysql4]]></model>
+          <type><![CDATA[pdo_mysql]]></type>
+          <pdoType><![CDATA[]]></pdoType>
+          <active>1</active>
+        </connection>
+      </default_backup>
+      <% end %>
     </resources>
 
     <% if session_save %><session_save><![CDATA[<%= session_save %>]]></session_save><% end %>
