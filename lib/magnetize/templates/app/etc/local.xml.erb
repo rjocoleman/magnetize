@@ -139,6 +139,15 @@
       <header2><![CDATA[<%= remote_addr_headers_header2 %>]]></header2>
     </remote_addr_headers>
     <% end %>
+    
+    <% if skip_process_modules_updates %>
+    <skip_process_modules_updates><![CDATA[<%= skip_process_modules_updates %>]]></skip_process_modules_updates>
+    <% end %>
+    
+    <% if skip_process_modules_updates_ignore_dev_mode %>
+    <skip_process_modules_updates_ignore_dev_mode><![CDATA[<%= skip_process_modules_updates_ignore_dev_mode %>]]></skip_process_modules_updates_ignore_dev_mode>
+    <% end %>
+    
   </global>
 
   <% if admin_routers_adminhtml_args_frontname %>

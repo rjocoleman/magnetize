@@ -1,6 +1,9 @@
 module Magnetize
   class Magento
     OPTIONS = %w(
+      skip_process_modules_updates_ignore_dev_mode
+      skip_process_modules_updates
+
       admin_routers_adminhtml_args_frontname
 
       cache_slow_backend
