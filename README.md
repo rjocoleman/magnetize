@@ -4,9 +4,9 @@ CLI and library for generating Magento local.xml files.
 Generates both `app/etc/local.xml` and `errors/local.xml` from the a specified [TOML]() configuration file.
 Also supports converting an existing Magento XML configuration file into a TOML file.
 
-Prefixes the TOML data with the `type` of Magento configuration file so that multiple Magento `local.xml` files can be stored in a common configuration and then seperate files be generated larter.
+Prefixes the TOML data with the `type` of Magento configuration file so that multiple Magento `local.xml` files can be stored in a common configuration and then separate files be generated later.
 
-Supports arbitrary values in the both the `local.xml` and toml config, so new configration can be added without prior knowlege.
+Supports arbitrary values in the both the `local.xml` and toml config, so new configuration can be added without prior knowledge.
 
 
 ## Installation
@@ -35,11 +35,13 @@ opts = {
   :types => {
     'app' => {
       :magento => 'app/etc/local.xml',
-      :toml => 'config.toml'
+      :toml => 'config.toml',
+      :content => nil # optional raw content
     },
     'errors' => {
       :magento => 'errors/local.xml',
-      :toml => 'config.toml'
+      :toml => 'config.toml',
+      :content => nil # optional raw content
     }
   }
 }
@@ -55,11 +57,29 @@ Magnetize::Convert.new.to_magento(opts)
 ```
 
 
+### Capistrano
+
+`Capfile`:
+```ruby
+require 'magnetize/capistrano'
+```
+This adds two tasks to your Cap.
+
+And then to deploy every time:
+
+`deploy.rb`:
+```
+after 'deploy:updated', 'magnetize:push'
+
+```
+
+
+
 ## Version 1
 
-Version 1 is functionally equivalent in that it generates `local.xml` files from `ENV`. However it relies on all configuration values being present in the template which it's output to. This means it's inflexible when dealing with new configuration options.
+Version 1 is functionally equivalent in that it generates `local.xml` files from `ENV`. However it relies on all configuration values being present in the template it's output to. This means it's inflexible when dealing with new configuration options.
 
-Version 2 is a complete re-write and as such is API incompatable with V1. V1 is available here on [this branch](https://github.com/rjocoleman/magnetize/tree/v1)
+Version 2 is a complete re-write and is API incompatible with V1. V1 is available here on [this branch](https://github.com/rjocoleman/magnetize/tree/v1)
 
 
 ## Contributing
