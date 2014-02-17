@@ -16,12 +16,6 @@ namespace :magnetize do
     end
   end
 
-  after 'deploy:finished', 'magnetize:push'
-
-  ## bring the current stages magento config back to a local toml
-  ## use the same magento directory from the default variable
-  # look at the primary node, look in the magento directory
-  # and then write it out locally (once).
   desc 'Pull remote Magento config to local TOML config'
   task :pull do
     Dir.chdir(fetch(:magnetize_dir)) do
