@@ -63,7 +63,10 @@ Magnetize::Convert.new.to_magento(opts)
 ```ruby
 require 'magnetize/capistrano'
 ```
-This adds two tasks to your Cap.
+This adds two tasks to your Cap:
+
+ - `magentize:push`: sends your configured local TOML up to the servers as Magento XML.
+ - `magnetize:pull`: pulls down a local copy of the configured Magento XML as TOML.
 
 And then to deploy every time:
 
@@ -73,6 +76,23 @@ after 'deploy:updated', 'magnetize:push'
 
 ```
 
+
+Configuration and default values
+
+```
+set :magnetize_roles, :app # roles to magnetize on push
+set :magnetize_dir, '.' # local magnento dir, relative to capistrano
+set :magnetize_appxml_path, 'app/etc' # app/etc/local.xml directory relative to cap
+set :magnetize_errorsxml_path, 'errors' # errors/local.xml directory relative to cap
+set :magnetize_toml, 'config.toml' # toml to magnetize
+set :magnetize_force, false # overwrite existing TOML (takes effect on PULL only)
+```
+
+To use a different TOML per stage you could do something like:
+
+in deploy/production.rb: `set :magnetize_toml, 'magnetize.production.toml'`
+
+in deploy/staging.rb: `set :magnetize_toml, 'magnetize.staging.toml'`
 
 
 ## Version 1

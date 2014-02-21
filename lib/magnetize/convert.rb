@@ -32,7 +32,11 @@ module Magnetize
         options[:types].each do |type, config|
           input = File.expand_path(config[:toml])
           output = File.expand_path(config[:magento])
-          hash = read_toml(input)
+          if config[:content]
+            hash = TOML.load(config[:content])
+          else
+            hash = read_toml(input)
+          end
           xml = make_xml(hash[type.to_s])
           if options[:write]
             write(output, xml, options[:force])
@@ -48,7 +52,7 @@ module Magnetize
         result = {}
         options[:types].each do |type, config|
           input = File.expand_path(config[:magento])
-          output = File.expand_path(config[:toml])
+          output = File.expand_path(config[:toml]) if config[:toml]
           if config[:content]
             xml = config[:content]
           else
@@ -61,7 +65,7 @@ module Magnetize
           if options[:write]
             write(output, toml, options[:force])
           else
-            result[config[:toml]] = toml
+            result[type] = toml
           end
         end
         return result unless options[:write]
@@ -72,7 +76,7 @@ module Magnetize
     private
 
     def read_toml(path)
-      if File.exists?(path)
+      if !path.nil? && File.exists?(path)
         TOML.load_file(path)
       else
         {}
