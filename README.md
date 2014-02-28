@@ -72,7 +72,7 @@ And then to deploy every time:
 
 `deploy.rb`:
 ```
-after 'deploy:updated', 'magnetize:push'
+before 'deploy:check:linked_files', 'magnetize:push'
 
 ```
 
