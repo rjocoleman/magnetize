@@ -17,8 +17,6 @@ namespace :magnetize do
           }
         })
         config.each do |path, config|
-          FileUtils.mkdir_p File.dirname(path) unless File.directory?(File.dirname(path))
-          File.open(path, 'w') {} unless File.exists?(path)
           upload! StringIO.new(config), "#{shared_path}/#{path}"
         end
       end
