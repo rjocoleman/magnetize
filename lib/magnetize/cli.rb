@@ -37,4 +37,3 @@ module Magnetize
 
   end
 end
-
