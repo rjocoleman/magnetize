@@ -2,7 +2,7 @@ namespace :magnetize do
   desc 'Push local TOML config to remote Magento installation as Magento config file format'
   task :push do
     Dir.chdir(fetch(:magnetize_dir)) do
-      on roles fetch(:magnetize_roles), in: :parallel do
+      on roles(fetch(:magnetize_roles)), in: :parallel do
         config = Magnetize::Convert.new.to_magento({
           :write => false,
           :types => {
@@ -26,7 +26,7 @@ namespace :magnetize do
   desc 'Pull remote Magento config to local TOML config'
   task :pull do
     Dir.chdir(fetch(:magnetize_dir)) do
-      on primary fetch(:magnetize_roles) do
+      on primary(fetch(:magnetize_roles)) do
         within "#{shared_path}" do
           config = Magnetize::Convert.new.to_toml({
             :write => false,
